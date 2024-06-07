@@ -15,11 +15,6 @@
 - *Date Created*: 05 Jun 2024
 - *Last Modification Date*: 06 Jun 2024
 
-### Tech Stack
-1. React
-2. HTML+CSS
-3. StyleX
-
 
 ### Prerequisites
 
