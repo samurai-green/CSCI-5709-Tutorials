@@ -9,7 +9,7 @@
 - Individual Repo Link (Gitlab) - https://git.cs.dal.ca/siddharthb/CSCI-5709-Tutorials
 ---
 
-### [Netlify Deployment Link]()
+### [Netlify Deployment Link](https://main--5709tutorial3.netlify.app/)
 
 ### Tech Stack
 1. React

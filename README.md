@@ -12,5 +12,5 @@
 - Assignment Repo Link (Gitlab) - https://git.cs.dal.ca/siddharthb/CSCI-5709-Assignments
 
 ### Tutorials
-1. [Tutorial 2 - React Boilerplate](./Tutorial2/)
-2. [Tutorial 3 - Registration + Login Form](./Tutorial3/)
+1. [Tutorial 2 - React Boilerplate](./Tutorial2/) - [deployed here](https://main--wonderful-squirrel-1adaea.netlify.app/)
+2. [Tutorial 3 - Registration + Login Form](./Tutorial3/) - [deployed here](https://main--5709tutorial3.netlify.app/)
