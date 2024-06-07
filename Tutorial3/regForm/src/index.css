@@ -1,0 +1,9 @@
+html * {
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    background-color: #2c2c33;
+    margin: 0;
+    padding: 0;
+}

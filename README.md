@@ -12,4 +12,5 @@
 - Assignment Repo Link (Gitlab) - https://git.cs.dal.ca/siddharthb/CSCI-5709-Assignments
 
 ### Tutorials
-1. [Tutorial 2 - React Boilerplate](./Tutorial2/README.md)
+1. [Tutorial 2 - React Boilerplate](./Tutorial2/)
+2. [Tutorial 3 - Registration + Login Form](./Tutorial3/)
