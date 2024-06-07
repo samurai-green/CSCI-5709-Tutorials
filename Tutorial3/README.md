@@ -19,7 +19,8 @@
 ### Prerequisites
 
 To have a local copy of this lab / assingnment / project up and running on your
-local machine, you will first need to install the following software / libraries / plug-ins
+local machine, you will first need to install the following software / libraries
+/ plug-ins
 
 ```
 nodejs / npm

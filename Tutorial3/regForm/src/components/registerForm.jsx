@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import * as stylex from '@stylexjs/stylex';
+import { useNavigate } from 'react-router-dom';
 
 const onClose = (regFormRef) => {
     regFormRef.current.close();
@@ -25,34 +26,50 @@ const RegisterForm = ({style, regFormRef}) => {
     const [email, setEmail] = useState('')
     const [emailError, setEmailError] = useState(false)
     const [password, setPassword] = useState('')
-    const [passwordError, setPasswordError] = useState(false)
+    const [passwordError, setPasswordError] = useState(true)
     const [confirmPassword, setConfirmPassword] = useState('')
     const [confirmPasswordError, setConfirmPasswordError] = useState(false)
 
-    const handleFirstNameChange = (e) => {
+    const handleFirstNameChange = useCallback((e) => {
         setFirstName(e.target.value);
         setFirstNameError(!isValidName(e.target.value));
-    }
+    }, [])
 
-    const handleLastNameChange = (e) => {
+    const handleLastNameChange = useCallback((e) => {
         setLastName(e.target.value);
         setLastNameError(!isValidName(e.target.value));
-    }
+    }, [])
 
-    const handleEmailChange = (e) => {
+    const handleEmailChange = useCallback((e) => {
         setEmail(e.target.value);
         setEmailError(!isValidEmail(e.target.value));
-    }
+    }, [])
 
-    const handlePasswordChange = (e) => {
+    const handlePasswordChange = useCallback((e) => {
         setPassword(e.target.value);
         setPasswordError(!isValidPassword(e.target.value));
-    }
+        setConfirmPasswordError(confirmPassword !== e.target.value);
+    }, [confirmPassword])
 
-    const handleConfirmPasswordChange = (e) => {
+    const handleConfirmPasswordChange = useCallback((e) => {
         setConfirmPassword(e.target.value);
         setConfirmPasswordError(e.target.value !== password);
-    }
+    }, [password])
+
+    const isThereAnError = useMemo(() => {
+        return firstNameError || lastNameError || emailError || passwordError || confirmPasswordError;
+    }, [firstNameError, lastNameError, emailError, passwordError, confirmPasswordError])
+
+
+    const navigate = useNavigate();
+
+    const onRegisterButtonClick = useCallback((e) => {
+        if (!isThereAnError) {
+            navigate('/profile');
+        }
+    }, [isThereAnError])
+
+
 
     return (
         <>
@@ -90,7 +107,7 @@ const RegisterForm = ({style, regFormRef}) => {
                         {confirmPasswordError && <p style={{color: 'red', padding: 0, margin: 0}}>Passwords do not match</p>}
 
                         <input type="password" id="confirm_password" name="confirm_password" value={confirmPassword} onChange={handleConfirmPasswordChange}></input>
-                        <button style={{ fontSize: '1rem', margin: '2rem 0 0 0' }}>Register</button>
+                        <button style={{ fontSize: '1rem', margin: '2rem 0 0 0' }} disabled={isThereAnError} onClick={onRegisterButtonClick}>Register</button>
                     </form>
                 </div>
            </dialog>
