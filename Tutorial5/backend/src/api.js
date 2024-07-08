@@ -1,8 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const serverless = require('serverless-http')
 
+const router = express.Router()
 const app = express()
-app.use(express.json())
+// app.use(express.json())
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://sidhu97ss:incorrectPassword@cluster1.2chpe4b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1', {
@@ -24,7 +26,7 @@ const Document = new mongoose.Schema({
 const User = mongoose.model('data', Document)
 
 // GET /users route
-app.get('/users', async (req, res) => {
+router.get('/users', async (req, res) => {
     try {
         const users = await User.find()
 
@@ -48,7 +50,7 @@ app.get('/users', async (req, res) => {
 })
 
 // PUT /update/:id route
-app.put('/update/:id', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { email, firstName } = req.body;
@@ -69,7 +71,7 @@ app.put('/update/:id', async (req, res) => {
 });
 
 // POST /add route
-app.post('/add', async (req, res) => {
+router.post('/add', async (req, res) => {
     try {
         const { email, firstName } = req.body;
 
@@ -88,7 +90,7 @@ app.post('/add', async (req, res) => {
 });
 
 // GET /user/:id route
-app.get('/user/:id', async (req, res) => {
+router.get('/user/:id', async (req, res) => {
     try {
         const { id } = req.params;
 
@@ -112,7 +114,7 @@ app.get('/user/:id', async (req, res) => {
     }
 });
 
-// Start the server
-app.listen(3000, () => {
-    console.log('Server started on port 3000')
-})
+
+app.use('/', router)
+
+module.exports.handler = serverless(app)

@@ -1,4 +1,5 @@
 node_modules
+functions
 dist
 dist-ssr
 *.local
