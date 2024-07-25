@@ -15,3 +15,5 @@
 1. [Tutorial 2 - React Boilerplate](./Tutorial2/) - [deployed here](https://main--wonderful-squirrel-1adaea.netlify.app/)
 2. [Tutorial 3 - Registration + Login Form](./Tutorial3/) - [deployed here](https://main--5709tutorial3.netlify.app/)
 3. [Tutorial 5 - NodeJS Backend](./Tutorial5/) - [deployed here](https://tut5.netlify.app/.netlify/functions/api/users)
+3. [Tutorial 6 - MongoDB Atlas](./Tutorial6/)
+3. [Tutorial 7 - NodeJS Backend](./Tutorial7/) - [deployed here](https://tut7.netlify.app/.netlify/functions/api/users)
